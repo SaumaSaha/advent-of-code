@@ -4,7 +4,7 @@ const splitBy = (char, data) => data.trim().split(char);
 
 const add = (a, b) => a + b;
 
-const sumOf = (args) => args.reduce(add, 0);
+const sumOf = (numbers) => numbers.reduce(add, 0);
 
 const groupCaloriesCarriedByEach = (rawData) => {
   return splitBy("\n\n", rawData).map((calories) => {
@@ -17,7 +17,7 @@ const calculateTotalCalories = (groupedCalories) => {
 };
 
 const main = () => {
-  fs.readFile("./sample-input.txt", "utf-8", (err, rawData) => {
+  fs.readFile("./res/sample-input.txt", "utf-8", (err, rawData) => {
     const groupedCalories = groupCaloriesCarriedByEach(rawData);
     const totalCaloriesCarriedByEach = calculateTotalCalories(groupedCalories);
     totalCaloriesCarriedByEach.sort((a, b) => a - b);
